@@ -1,7 +1,7 @@
 FROM ubuntu:18.04 as base-stage
 
 ENV WORK_DIR /opt/application
-ENV EOSIO_PACKAGE_URL https://github.com/eosio/eos/releases/download/v2.0.7/eosio_2.0.7-1-ubuntu-18.04_amd64.deb
+ENV EOSIO_PACKAGE_URL https://github.com/eosio/eos/releases/download/v2.0.13/eosio_2.0.13-1-ubuntu-18.04_amd64.deb
 ENV EOSIO_CDT_OLD_URL https://github.com/eosio/eosio.cdt/releases/download/v1.6.3/eosio.cdt_1.6.3-1-ubuntu-18.04_amd64.deb
 ENV EOSIO_CDT_URL https://github.com/EOSIO/eosio.cdt/releases/download/v1.7.0/eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
 
@@ -23,8 +23,8 @@ RUN apt-get install -y /eosio-cdt-v1.6.3.deb \
   && make -j$(sysctl -n hw.ncpu)
 
 RUN apt-get install -y /eosio-cdt-v1.7.0.deb \
-  && git clone https://github.com/eoscostarica/eosio.contracts.git /opt/eosio.contracts \
-  && cd /opt/eosio.contracts && git checkout release/1.9.x \
+  && git clone https://github.com/siliconswampio/wire-eosio-contracts.git /opt/eosio.contracts \
+  && cd /opt/eosio.contracts && git checkout release/1.0.0 \
   && rm -fr build \
   && mkdir build  \
   && cd build \
