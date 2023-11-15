@@ -29,6 +29,17 @@ create_system_accounts() {
   system_accounts=( \
     "eosio.msig" \
     "eosio.token" \
+    
+    "eosio.ram" \
+    "eosio.ramfee" \
+    "eosio.stake" \
+    "eosio.bpay" \
+    "eosio.vpay" \
+    "eosio.names" \
+    "eosio.saving" \
+    "eosio.rex" \
+    "eosio.reserv" \
+
     "validator1" \
     "validator2" \
     "validator3" \
@@ -37,13 +48,16 @@ create_system_accounts() {
   for account in "${system_accounts[@]}"; do
     echo "Creating $account account..."
 
-    keys=($(cleos create key --to-console))
-    pub=${keys[5]}
-    priv=${keys[2]}
+    # keys=($(cleos create key --to-console))
 
-    cleos wallet import --private-key $priv
+    # echo "Created Keys: ${keys[@]}"
+    
+    # pub=${keys[5]}
+    # priv=${keys[2]}
 
-    cleos create account eosio $account $pub;
+    # cleos wallet import --private-key $priv
+
+    cleos create account eosio $account $EOS_PUB_KEY;
   done
 }
 
@@ -125,6 +139,8 @@ deploy_system_contracts() {
     [[ "$result" -ne "0" ]] && echo "Failed, trying again";
   done
   set -e;
+
+  sleep 2;
 }
 
 set_msig_privileged_account() {

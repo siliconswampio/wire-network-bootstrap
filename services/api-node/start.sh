@@ -12,7 +12,8 @@ pid=0;
 nodeos=$"nodeos \
   --config-dir $CONFIG_DIR \
   --data-dir $DATA_DIR \
-  --blocks-dir $DATA_DIR/blocks" ;
+  --blocks-dir $DATA_DIR/blocks \
+  --disable-replay-opts" ;
 
 term_handler() {
   if [ $pid -ne 0 ]; then

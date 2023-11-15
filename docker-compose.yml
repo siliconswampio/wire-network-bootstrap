@@ -73,6 +73,7 @@ services:
     image: ${IMAGE_NAME}:${VERSION}
     ports:
       - 80:80
+      - 8080:8080
   wallet:
     build:
       target: local-stage
