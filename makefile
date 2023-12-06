@@ -20,7 +20,7 @@ run-vault: build-docker-compose
 
 run: ##@local Build and run the blockchain locally (validator, wallet and writer-api)
 run: build-docker-compose ## test
-	@docker-compose -f $(BUILDS_DIR)/docker-compose.yml build --no-cache
+	@docker-compose -f $(BUILDS_DIR)/docker-compose.yml build
 	@docker-compose -f $(BUILDS_DIR)/docker-compose.yml up -d
 	
 ifeq (,$(wildcard vault_keys.json))
