@@ -24,7 +24,7 @@ RUN apt-get install -y /eosio-cdt-v1.6.3.deb \
 
 RUN apt-get install -y /eosio-cdt-v1.7.0.deb \
   && git clone https://github.com/siliconswampio/wire-eosio-contracts.git /opt/eosio.contracts \
-  && cd /opt/eosio.contracts && git checkout tags/v1.0.3 \
+  && cd /opt/eosio.contracts && git checkout tags/v1.0.4 \
   && rm -fr build \
   && mkdir build  \
   && cd build \

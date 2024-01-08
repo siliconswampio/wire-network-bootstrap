@@ -35,6 +35,9 @@ secrets/
 # vault
 vault_keys.json
 
+services/bios/unlock.sh
+services/bios/auth.msg
+services/bios/settle.wns
 
 # Local env
 .env

@@ -72,8 +72,8 @@ services:
       - ../services/api-node:/opt/application
     image: ${IMAGE_NAME}:${VERSION}
     ports:
-      - 80:80
-      - 8080:8080
+      - "8080:8080"  # Expose container's port 8080 to host's port 8080
+      - "8181:80"    # Expose container's port 80 to host's port 8181
   wallet:
     build:
       target: local-stage
